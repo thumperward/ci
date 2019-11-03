@@ -55,4 +55,4 @@ jobs:
         uses: actions/checkout@master
 
       - name: Run package script
-        run: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/thumperward/ci/windows-too/build-package.ps1'))
+        run: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/atom/ci/master/build-package.ps1'))
