@@ -14,4 +14,5 @@ RUN ${APM_SCRIPT_PATH} install
 RUN ${APM_SCRIPT_PATH} clean
 ENV PATH="${HOME}/atom/usr/share/${ATOM_SCRIPT_NAME}/resources/app/apm/bin:${PATH}"
 ENV DISPLAY=":99"
-RUN if [ -d ./spec ]; then /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16 && ${ATOM_SCRIPT_PATH} --test spec; fi
+RUN if [ -d ./spec ]; then /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16 && echo ::set-output name=$(${ATOM_SCRIPT_PATH} --test spec); fi
+ 
